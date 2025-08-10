@@ -7,12 +7,28 @@ def index(request):
 
 #       Sessão
 def cadastro(request):
+    if request.method == "POST":
+        form = formularios.FormCadastro(request.POST)
+        
+        if form.is_valid():
+            form.cleaned_data
+
+        else:
+            return render(request, "pre_pago/sessao/cadastro.html", {
+                "form": form
+            })
+            
     return render(request, "pre_pago/sessao/cadastro.html",{
         "form":formularios.FormCadastro()
     })
 
 def login(request):
     return render(request, "pre_pago/sessao/login.html")
+
+def verificar(request):
+    return render(request, "pre_pago/sessao/verificar.html",{
+        "verificar": formularios.FormValidar()
+    })
 
 #       Conteúdo
 def home(request):
