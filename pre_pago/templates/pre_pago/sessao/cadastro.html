@@ -1,0 +1,14 @@
+{% extends "pre_pago/layout.html" %}
+
+{% block body %}
+
+    <h1>Cadastro</h1>
+    
+    <Form action="" method="POST">
+        {% csrf_token %}
+
+        {{ form }}
+
+    </Form>
+
+{% endblock body %}

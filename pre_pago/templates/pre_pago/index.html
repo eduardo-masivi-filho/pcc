@@ -3,7 +3,17 @@
 
 {% block body %}
 
-    <h1>Hello, world!</h1>
+    <h1>Welcome to our app </h1>
+
+    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Repudiandae, voluptate sunt saepe quo similique laudantium distinctio illum unde aliquid dolorum. Nobis, cumque neque incidunt laboriosam cum minus. Accusamus, exercitationem quia!</p>
+ 
+<!--    Sessão    -->
+    <a href="{% url 'pre_pago:cadastro' %}">Criar Conta</a><br>
+    <a href="{% url 'pre_pago:login' %}">Iniciar Sessão</a><br><br>
+
+<!--    Sobre    -->
+    <a href="{% url 'pre_pago:ajuda' %}">Ajuda</a><br>
+    <a href="{% url 'pre_pago:devs' %}">Sobre os desenvolvedores</a>
 
 {% endblock body %}
     

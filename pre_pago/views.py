@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from . import formularios
 
 #       Início
 def index(request):
@@ -6,7 +7,9 @@ def index(request):
 
 #       Sessão
 def cadastro(request):
-    return render(request, "pre_pago/sessao/cadastro.html")
+    return render(request, "pre_pago/sessao/cadastro.html",{
+        "form":formularios.FormCadastro()
+    })
 
 def login(request):
     return render(request, "pre_pago/sessao/login.html")
@@ -20,3 +23,10 @@ def historico_de_pagamentos(request):
 
 def perfil(request):
     return render(request, "pre_pago/conteudo/perfil.html")
+
+#       Sobre
+def ajuda(request):
+    return render(request, "pre_pago/sobre/ajuda.html")
+
+def desenvolvedores(request):
+    return render(request, "pre_pago/sobre/devs.html")
