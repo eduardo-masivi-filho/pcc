@@ -16,25 +16,25 @@ class FormCadastro(forms.Form):
     telefone = forms.IntegerField(
         label="Nº de telefone: ", 
         widget=forms.NumberInput(), 
-        max_value= 8
+        max_value= 999999999
         )
     
     seu_id_na_provedoraa = forms.IntegerField(
         label="ID salvo na provedora: ", 
         widget=forms.NumberInput(), 
-        max_value= 9
+        max_value= 99999999
         )
     
     pin = forms.IntegerField(
         label="PIN", 
         widget=forms.PasswordInput(),
-        max_value= 4
+        max_value= 9999
         )
     
     cpin = forms.IntegerField(
         label="Confirmar PIN", 
         widget=forms.PasswordInput(),
-        max_value= 4
+        max_value= 9999
         )
 
 class FormLogin(forms.Form):
