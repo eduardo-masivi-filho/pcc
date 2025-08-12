@@ -1,5 +1,7 @@
 from django.shortcuts import render
 from . import formularios
+from .models import Sessao
+
 
 #       Início
 def index(request):
@@ -7,6 +9,15 @@ def index(request):
 
 #       Sessão
 def cadastro(request):
+    sessao = Sessao()
+    
+    sessao.nome = request.POST.get("nome")
+    sessao.email = request.POST.get("email")
+    sessao.telefone = request.POST.get("telefone")
+    sessao.seu_id_na_provedoraa = request.POST.get("seu_id_na_provedoraa")
+    sessao.pin = request.POST.get("pin")
+    sessao.save()
+
     if request.method == "POST":
         form = formularios.FormCadastro(request.POST)
         
@@ -17,17 +28,22 @@ def cadastro(request):
             return render(request, "pre_pago/sessao/cadastro.html", {
                 "form": form
             })
-            
+    
     return render(request, "pre_pago/sessao/cadastro.html",{
         "form":formularios.FormCadastro()
     })
+    
 
 def login(request):
-    return render(request, "pre_pago/sessao/login.html")
+    form = formularios.FormLogin()
+    
+    return render(request, "pre_pago/sessao/login.html", {
+        "form": form
+    })
 
-def verificar(request):
-    return render(request, "pre_pago/sessao/verificar.html",{
-        "verificar": formularios.FormValidar()
+def auth(request):
+    return render(request, "pre_pago/sessao/auth.html",{
+        "auth": formularios.FormAuth()
     })
 
 #       Conteúdo

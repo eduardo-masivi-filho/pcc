@@ -10,6 +10,7 @@ urlpatterns = [
     #       Sessão
     path('cadastro', views.cadastro, name="cadastro"),
     path('login', views.login, name="login"),
+    path('auth', views.auth, name="auth"),
     
     #       Conteúdo
     path('home', views.home, name="home"),
