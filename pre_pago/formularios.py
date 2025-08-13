@@ -51,4 +51,4 @@ class FormLogin(forms.Form):
     )
 
 class FormAuth(forms.Form):
-    Codigo_valido = forms.IntegerField(max_value = 6)
+    Codigo_valido = forms.IntegerField(max_value = 9999)

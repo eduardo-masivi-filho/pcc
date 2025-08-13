@@ -1,7 +1,5 @@
 from django.db import models
 
-# Create your models here.
-
 class Sessao(models.Model):
     nome = models.CharField("nome_completo", max_length= 70)
     email = models.EmailField("email", max_length= 50)

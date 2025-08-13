@@ -4,7 +4,7 @@
 
     <h1>Cadastro</h1>
     
-    <Form action="{% url 'pre_pago:cadastro' %}" method="POST">
+    <Form action="{% url 'pre_pago:auth' %}" method="POST">
         {% csrf_token %}
 
         <table>

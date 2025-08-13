@@ -9,14 +9,6 @@ def index(request):
 
 #       Sessão
 def cadastro(request):
-    sessao = Sessao()
-    
-    sessao.nome = request.POST.get("nome")
-    sessao.email = request.POST.get("email")
-    sessao.telefone = request.POST.get("telefone")
-    sessao.seu_id_na_provedoraa = request.POST.get("seu_id_na_provedoraa")
-    sessao.pin = request.POST.get("pin")
-    sessao.save()
 
     if request.method == "POST":
         form = formularios.FormCadastro(request.POST)
@@ -32,7 +24,6 @@ def cadastro(request):
     return render(request, "pre_pago/sessao/cadastro.html",{
         "form":formularios.FormCadastro()
     })
-    
 
 def login(request):
     form = formularios.FormLogin()
@@ -42,6 +33,23 @@ def login(request):
     })
 
 def auth(request):
+    
+    nova_sessao = Sessao()
+    
+    nova_sessao.nome = request.POST.get("nome")
+    nova_sessao.email = request.POST.get("email")
+    nova_sessao.telefone = request.POST.get("telefone")
+    nova_sessao.seu_id_na_provedoraa = request.POST.get("seu_id_na_provedoraa")
+    nova_sessao.pin = request.POST.get("pin")
+    cpin = request.POST.get("cpin")
+    
+    if cpin != nova_sessao.pin:
+        return render(request, "pre_pago/sessao/cadastro.html", {
+            "form" : formularios.FormCadastro(request.POST)
+        })
+    else:
+        nova_sessao.save()
+    
     return render(request, "pre_pago/sessao/auth.html",{
         "auth": formularios.FormAuth()
     })
